@@ -81,7 +81,6 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
 
   return (
     
-    // @ts-expect-error This Cloud component requires children to be passed directly, but the typing does not currently support it.
     <Cloud {...cloudProps}>
       <>{renderedIcons}</>
     </Cloud>
