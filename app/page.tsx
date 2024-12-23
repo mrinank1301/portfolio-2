@@ -68,12 +68,12 @@ export default function Home() {
             <div className="md:w-1/2">
               <BlurFade delay={1.5} inView inViewMargin="-100px">
                 <p className="text-lg sm:text-xl text-gray-700 mb-6">
-                  Hey there! I'm a Machine Learning Engineer and web developer
+                  Hey there! I&apos;m a Machine Learning Engineer and web developer
                   with a passion for creating tech magic! From crafting AI-powered
                   tools to designing intuitive web experiences, I love bringing
                   bold ideas to life. Every project is a chance to innovate,
                   simplify, and make the digital world a little more awesome.
-                  Let's build something extraordinary together!
+                  Let&apos;s build something extraordinary together!
                 </p>
                 <BlurFade delay={2} inView>
                   <Button variant="outline" className="w-36 h-12">
@@ -125,7 +125,7 @@ export default function Home() {
       <footer className="container mx-auto px-4 py-16">
         <div className="bg-slate-200 max-w-2xl mx-auto p-6 rounded-xl">
           <h2 className="text-2xl font-semibold text-center mb-8">
-            Let's get in touch!
+            Let&apos;s get in touch!
           </h2>
           <form className="space-y-6">
             <input
