@@ -1,31 +1,50 @@
-"use client";
-import Link from "next/link";
-import React, { useState } from "react";
-import { Menu } from "lucide-react"; // Ensure this is correct
+"use client"
 
-function MenuButton() {
-  const [isOpen, setIsOpen] = useState(false);
+import { useState } from "react"
+import Link from "next/link"
+import { Menu, X } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+
+export default function MenuButton() {
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div>
-      <button onClick={() => setIsOpen(!isOpen)}>
-        <Menu className="md:hidden ml-14 size-10 shrink-0" />
-      </button>
+    <div className="md:hidden">
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle menu"
+      >
+        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      </Button>
 
       {isOpen && (
-        <div className=" fixed top-0 left-0 h-screen w-screen bg-white p-4 z-50">
-          <button onClick={() => setIsOpen(false)} className="absolute top-2 right-4 p-10">Close</button>
-          <ul className="flex flex-col items-center justify-center h-full gap-4 text-2xl">
-           <Link href="/" className="mr-6">Home</Link>
-              <Link href="/about" className="mr-6">About</Link>
-              <Link href="/" className="mr-6">Blog</Link> 
-              <Link href="/" className="mr-6">Contact</Link>
-              <Link href="/services" className="mr-6">Services</Link>
-          </ul>
+        <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute top-4 right-4"
+            onClick={() => setIsOpen(false)}
+            aria-label="Close menu"
+          >
+            <X className="h-6 w-6" />
+          </Button>
+          <nav className="flex flex-col items-center space-y-6 text-2xl">
+            {["Home", "About", "Blog", "Contact", "Services"].map((item) => (
+              <Link
+                key={item}
+                href="/"
+                className="hover:text-red-500 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {item}
+              </Link>
+            ))}
+          </nav>
         </div>
       )}
     </div>
-  );
+  )
 }
 
-export default MenuButton;
